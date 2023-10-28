@@ -71,9 +71,9 @@ function App() {
           {
            tasks.map((task, index) => (
             <div key={index} className='w-[50%] flex justify-between text-xl border-2 rounded-2xl p-4 m-2 relative ' >
-            <p className='w-[85%] overflow-hidden flex items-center text-xl font-Jockone'>{task}</p>
+            <p className='w-[85%] overflow-hidden flex items-center text-3xl font-Jockone'>{task}</p>
             <input type="checkbox" onChange={Completed}  className='absolute self-center left-[85%] w-[4vh] h-[4vh] appearance-none '/>
-            <button onClick={()=> handleDelete(index)}><img src="/assets/icons/dustbin.svg" className='w-[5vh] opacity-70' /></button>
+            <button onClick={()=> handleDelete(index)}><img src="/src/assets/dustbin.svg" className='w-[5vh] opacity-70' /></button>
             </div>
           ))}
            
