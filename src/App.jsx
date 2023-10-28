@@ -8,7 +8,7 @@ function App() {
   
   useEffect(()=>{
     const items = JSON.parse(localStorage.getItem('items'));
-    if(items.length > 0){
+    if(items){
       setItem(items);
       setTasks(items);
     } else {
