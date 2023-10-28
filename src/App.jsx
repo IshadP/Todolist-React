@@ -18,7 +18,7 @@ function App() {
   },[])
 
   useEffect(() => {
-    if (items.length > 0) {localStorage.setItem('items', JSON.stringify(items))}
+    if (items) {localStorage.setItem('items', JSON.stringify(items))}
   }, [items])
 
  
