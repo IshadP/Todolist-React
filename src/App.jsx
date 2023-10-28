@@ -53,6 +53,7 @@ function App() {
 
   return (
     <div className='relative h-[95%]'>
+      <div className='absolute top-20 -right-10 -rotate-90 opacity-10'>Made with &hearts; by IshadP</div>
       <button onClick={Clear} className='absolute left-[92%] bottom-0  bg-red-600 p-4 rounded-xl text-white font-black z-10 hover:-translate-x-1 hover:-translate-y-1'>CLEAR</button>
       <button onClick={Clear} className='absolute left-[92%] bottom-0  bg-black p-4 rounded-xl text-black font-black z-0'>CLEAR</button>
       <div className='h-20 flex items-center justify-center m-10 mb-20'>
