@@ -39,6 +39,7 @@ function App() {
 
   function Clear(){
     setTasks([]);
+    setItem([]);
   };
 
   function Completed(index){
@@ -53,17 +54,17 @@ function App() {
 
   return (
     <div className='relative h-[95%]'>
-      <div className='absolute top-20 -right-10 -rotate-90 opacity-10'>Made with &hearts; by IshadP</div>
-      <button onClick={Clear} className='absolute left-[92%] bottom-0  bg-red-600 p-4 rounded-xl text-white font-black z-10 hover:-translate-x-1 hover:-translate-y-1'>CLEAR</button>
-      <button onClick={Clear} className='absolute left-[92%] bottom-0  bg-black p-4 rounded-xl text-black font-black z-0'>CLEAR</button>
-      <div className='h-20 flex items-center justify-center m-10 mb-20'>
-        <p className='text-purple-800 font-Unione text-8xl'>TO-DO LIST</p>
+      <div className='absolute top-20 hidden -right-10 -rotate-90 opacity-10 z-30 sm:visible '>Made with &hearts; by IshadP</div>
+      <button onClick={Clear} className='left-[2vw] bottom-4  bg-red-600 p-4 rounded-xl text-white font-black z-20 hover:-translate-x- hover:-translate-y-0 sm:left-[92%] sm:hover:-translate-y-1 sm:hover:-translate-x-1  md:left-10 fixed'>CLEAR</button>
+      <button onClick={Clear} className='left-[2%] bottom-4  bg-black p-4 rounded-xl text-black font-black z-10 sm:left-[92%] fixed md:left-10 2'>CLEAR</button>
+      <div className='h-20 flex items-center justify-center m-10 mb-20 '>
+        <p className='text-purple-800 font-Unione text-5xl sm:text-8xl'>TO-DO LIST</p>
       </div>
       <div>
-      <div className='flex items-center justify-center m-5'>
+      <div className='flex flex-nowrap items-center justify-center m-0 sm:m-5'>
        <form>
-        <input type='text' value={task} onChange={(e)=> setTask(e.target.value)} className='border-t-2 border-b-2 border-l-2 border-gray-500 rounded-l-xl text-4xl p-5 '/>
-        <button type="submit" onClick={handleClick} className='border-2 border-gray-500 rounded-r-xl text-4xl p-5 text-gray-700 '>+</button>
+        <input type='text' value={task} onChange={(e)=> setTask(e.target.value)} className='w-[50vw] border-t-2 border-b-2 border-l-2 border-gray-500 rounded-l-xl text-4xl p-1 sm:p-5 sm:w-100'/>
+        <button type="submit" onClick={handleClick} className='border-2 border-gray-500 rounded-r-xl text-4xl p-1 px-4 text-gray-700 sm:p-5'>+</button>
        </form>
        </div>
         <div className='flex flex-col items-center justify-center'>
