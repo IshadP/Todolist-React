@@ -4,6 +4,7 @@ import './App.css'
 function App() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [compts, setCompts] = useState([]);
   const [items, setItem] = useState([]);
   const [theme, setTheme] = useState(false);
   
@@ -16,6 +17,7 @@ function App() {
     } else {
       setItem([]);
       setTasks([]);
+      setCompts([]);
     }
     setTheme(theme);
   },[])
@@ -46,6 +48,9 @@ function App() {
   };
 
   function Completed(index){
+    const completedTask = tasks[index];
+  setCompts([...compts, completedTask]);
+  handleDelete(index);
   }
 
   function handleDelete(index){
@@ -54,6 +59,12 @@ function App() {
    setTasks(removed);
    setItem(removed)
   }
+  function handleDeletecomp(index){
+    const removed = [...compts];
+    removed.splice(index, 1);
+    setCompts(removed);
+   }
+
    if(theme){
     document.body.style = "background: #262626; transition-duration: 1s";
    } else {
@@ -86,8 +97,20 @@ function App() {
            tasks.map((task, index) => (
             <div key={index} className='w-[50%] flex justify-between text-xl border-2 rounded-2xl p-4 m-2 relative ' >
             <p className={ theme ? 'w-[85%] overflow-hidden flex items-center text-3xl font-Jockone text-white' : 'w-[85%] overflow-hidden flex items-center text-3xl font-Jockone'}>{task}</p>
-            <input type="checkbox" onChange={Completed}  className='absolute self-center left-[85%] w-[4vh] h-[4vh] appearance-none '/>
-            <button onClick={()=> handleDelete(index)}><img src="/dustbin.svg" className='w-[5vh] opacity-70' /></button>
+            <input type="checkbox" onChange={()=> Completed(index)}  className='absolute self-center left-[85%] w-[4vh] h-[4vh] bg-transparent'/>
+            <button onClick={()=> handleDelete(index)}><img src={theme ? '/dusbin-light.svg':'/dusbin-dark.svg'} className='w-[5vh] opacity-70' /></button>
+            </div>
+          ))}
+           
+        </div>
+        <div className='flex flex-col items-center justify-center'>
+          <p className='bg-red-500 text-white p-5 rounded-xl font-black m-4'>Completed</p>
+          {
+           compts.map((task, index) => (
+            <div key={index} className='w-[50%] flex justify-between text-xl border-2 rounded-2xl p-4 m-2 relative ' >
+            <p className={ theme ? 'w-[85%] overflow-hidden flex items-center text-3xl font-Jockone text-white' : 'w-[85%] overflow-hidden flex items-center text-3xl font-Jockone'}>{task}</p>
+            <input type="checkbox"  className='absolute self-center left-[85%] w-[4vh] h-[4vh] appearance-none '/>
+            <button onClick={()=> handleDeletecomp(index)}><img src="/dusbin-light.svg" className='w-[5vh] opacity-70' /></button>
             </div>
           ))}
            
